@@ -3,6 +3,8 @@
 #include "Framework/GameObject.h"
 #include "Companion.h"
 
+class Companion;
+
 class Player : public GameObject
 {
 public:
@@ -11,10 +13,15 @@ public:
 
 	void handleInput(float dt);
 	void update(float dt);
+
 	Companion* getCompanion()
 	{
 		return &companion;
 	};
+	
+
+	
+
 
 private:
 	Companion companion;

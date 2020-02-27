@@ -26,8 +26,14 @@ void Player::handleInput(float dt)
 	{
 		if (!hasFired)
 		{
+			input->setKeyUp(sf::Keyboard::Enter);
 			bullet = spawn(getPosition() + sf::Vector2f(getSize().x / 2, getSize().y / 2));
 			hasFired = true;
+		}
+		else if (hasFired)
+		{
+			input->setKeyUp(sf::Keyboard::Enter);
+			hasFired = false;
 		}
 	}
 }
@@ -40,7 +46,7 @@ void Player::update(float dt)
 
 Bullet* Player::spawn(sf::Vector2f pos)
 {
-	Bullet newBullet;
-	newBullet.setPosition(pos);
-	return &newBullet;
+	Bullet* newBullet = new Bullet;
+	newBullet->setPosition(pos);
+	return newBullet;
 }

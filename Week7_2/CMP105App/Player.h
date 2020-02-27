@@ -9,11 +9,12 @@ public:
 	Player();
 	~Player();
 
+	void update(float dt);
 	void handleInput(float dt);
 	Bullet* getBullet() {
 		return &bullet;
 	};
 
-private
+private:
 	Bullet bullet;
 };
